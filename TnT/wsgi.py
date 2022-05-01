@@ -1,5 +1,5 @@
 """
-WSGI config for tminus0 project.
+WSGI config for TourNTravel project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tminus0.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TnT.settings')
 
 application = get_wsgi_application()
