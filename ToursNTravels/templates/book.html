@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div id="index-banner">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <form action="" method="POST">
+          {% csrf_token %}
+        <div class="row center">
+          <h5 class="header col s12 light purple-text">Current Booking</h5>
+        <div class="input-field col l8 s12">
+          <i class="material-icons prefix">credit_card</i>
+          <input type="number" name="card_number" class="autocomplete">
+          <label for="autocomplete-input">Card Number</label>
+        </div>
+        <div class="input-field col l4 s12">
+          <label></label>
+          <select name= "card_type" class="browser-default">
+            <option value="" disabled selected>Card Type</option>
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+          </select>
+        </div>
+        </div>
+        {% if booking %}
+        <div class="container">
+          <div class="row center" style="font-size: 20px;">
+          {% for obj in some_list %}
+            {% if type == "flight" or type == "train" %}
+            <p class="card-title">{{obj.sourceLocation}} <-> {{obj.destinationLocation}}</p>
+            <p class="card-title">{{obj.departureDate}} @ {{obj.departureTime}}</p>
+            <p class="card-title">
+            {% if class == "economy" %}
+              <p>Economy Rs {{obj.fareEconomy}}</p>
+              {% endif %}
+              {% if class == "business" %}
+              <p>Business Rs {{obj.fareBusiness}}</p>
+              {% endif %}
+              {% if class == "first" %}
+              <p>First Rs {{obj.fareFirst}}</p>
+              {% endif %}
+            {% endif %}
+          </p>
+            {% if type == "hotel" %}
+            <p class="card-title">{{obj.address}} {{obj.city}}</p>
+            <p class="card-title">Rs {{obj.dailyCost}}</p>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+        {% endif %}
+        <div class="row center">
+          <button class="btn waves-effect waves-light" style="width: 300px" type="submit">Confirm
+        </div>
+        </form>
+
+        
+        <center>
+          
+        {% if msg %}
+          {{ msg }}
+              <br><br>
+        <div class="col l9 s8">
+          <table class="stripped">
+            <thead>
+              
+              <tr>
+                <th>Type</th>
+                <th>Class</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Book Date</th>
+                <th>Total</th>
+                <th>Card Number</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              
+              <tr>
+                {% if obj.bookingID.Hotel != Null  %}
+                    <td>Hotel</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>{{obj.bookingID.Hotel.city}}</td>
+                    
+                  {% elif obj.bookingID.Flight != Null %}
+                  <td>Flight</td>
+                  <td>{{obj.Type}}</td>
+                    
+                    <td>{{obj.bookingID.Flight.sourceLocation}}</td>
+                    <td>{{obj.bookingID.Flight.destinationLocation}}</td>
+                  {% else %}
+                  <td>Train</td>
+                  <td>{{obj.Type}}</td>
+                    
+                    <td>{{obj.bookingID.Train.sourceLocation}}</td>
+                    <td>{{obj.bookingID.Train.destinationLocation}}</td>
+                  
+                {% endif %}
+                <td>{{obj.transactionDate}}</td>
+                <td>Rs {{obj.paymentID.amount}}</td>
+                <td>{{obj.paymentID.cardNo}}</td>
+              </tr>
+            </table>
+            <br>
+          </div>
+        {% endif %}
+      </center>
+      <br><br>
+
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+  
+

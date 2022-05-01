@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div id="index-banner">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row center">
+          <h5 class="header col s12 light purple-text">Review our service</h5>
+        <div class="input-field col l9 s12">
+          <i class="material-icons prefix">rate_review</i>
+          <textarea id="textarea1" name="review" class="materialize-textarea"></textarea>
+          <label for="textarea1">Review</label>
+        </div>
+        <div class="input-field col l3 s12">
+          <label></label>
+          <select name= "rating" class="browser-default purple-text">
+            <option value="" disabled selected>Rating</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        </div>
+        {% if request.session.current_user %}
+        <div class="row center">
+          <button class="btn waves-effect waves-light purple" style="width: 300px" type="submit">
+              Submit
+          </button>
+        </div>
+        {% else %}
+        <div class="row center">
+          <button disabled class="btn waves-effect waves-light purple" style="width: 300px" type="submit">
+              Submit
+          </button>
+        </div>
+        {% endif %}
+        </form>
+
+        <br><br>
+
+      </div>
+    </div>
+  </div>
+
+  {% if results %}
+  <div class="row center" style="margin: 1em 2em;">
+      <div class="col s12 m12" >
+        {% for obj in some_list %}
+          <div class="card purple lighten-2">
+            <div class="card-content white-text">
+              <span class="card-title">{{obj.author.username}} says...</span>
+              <p>Ratings: {{obj.rating}} | {{obj.submissionDate}}</p>
+              <p>{{obj.review}}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div> 
+  {% else %}
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end travel agency built with Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'images/background1.jpg' %}" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% endif %}
+
+{% endblock content %}

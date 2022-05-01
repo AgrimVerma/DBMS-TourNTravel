@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div id="index-banner">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <form action="" method="POST">
+          {% csrf_token %}
+        <h2 class="header center purple-text text-lighten-2">Explore new places</h2>
+        <div class="row center">
+          <h5 class="header col s12 light">Where will you go next?</h5>
+          <div class="input-field col l11 s11">
+            <i class="material-icons prefix">location_on</i>
+            <input type="text" name="location" id="autocomplete-input" class="autocomplete">
+            <label for="autocomplete-input">Next Destination</label>
+          </div>
+          <div class="input-field col l1 s1">
+            <button class="btn waves-effect waves-light purple" type="submit">
+              <i class="large material-icons">search</i>
+            </button>
+          </div>
+        </div>
+        </form>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+  
+  {% if results %}
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <center><h5 class="header col s12 light" style="font-weight: 600;font-size: 3em; letter-spacing: 0.7em; text-transform: uppercase;">{{ location.0.city }}</h5></center>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'images/' %}{{location.0.image}}" alt="Unsplashed background img 2"></div>
+  </div>
+  <div class="container">
+  <div class="row center">
+      <br>
+        {% for obj in some_list %}
+        <div class="col l4 m4 s12">
+          <div class="card purple lighten-2">
+            <div style="margin: 0.5em auto;"><img src="{% static 'images/' %}{{obj.image}}" 
+             width="100%" alt="Card one" style="padding: 1em;"></div>
+            <div class="card-content white-text">
+              <span class="card-title" style="padding: 0.2em; font-weight: 500;">{{obj.attractionName}}</span>
+              <p>{{obj.attractionDescription}}</p>
+            </div>
+
+<!--             <div class="card-action">
+              <a href="#">Book Now</a>
+            </div> -->
+          </div>
+          </div>
+        {% endfor %}
+    </div> 
+  </div>
+  {% else %}
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end travel site built with Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center purple-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center purple-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light center">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center purple-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light center">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% endif %}
+
+{% endblock content %}

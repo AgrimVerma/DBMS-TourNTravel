@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <form class="col s6 offset-s3" action="" method="POST">
+        {% csrf_token %}
+        <center>
+          <h4>Sign Up</h4>
+        {% if msg %}
+          {{ msg }}
+        {% endif %}
+        </center>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" name="username" type="text">
+            <label for="icon_prefix">Name</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_prefix email" name="email" type="email" class="validate">
+            <label for="icon_prefix">Email</label>
+            <span class="helper-text" data-error="Incorrect email format" data-success=""></span>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <input id="icon_prefix" name="password" type="password">
+            <label for="icon_prefix">Password</label>
+          </div>
+          <center>
+            <button class="btn waves-effect waves-light" type="submit">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </center>
+          <br>
+          <center>
+            <a class="purple-text waves-effect waves-purple btn-flat" href="/login">Have an account? Log in</a>
+          </center>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<!--   <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center purple-text text-lighten-2">Parallax Template</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light purple lighten-1">Get Started</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'images/background1.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div> -->
+
+{% endblock content %}

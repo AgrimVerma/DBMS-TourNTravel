@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div id="index-banner" style="height: 450px; margin-top: 50px;">
+      
+        <div class="row center">
+          <div class="collection col l2 s4">
+            <a href="{% url 'account' %}?setting=preferences" class="left collection-item">Preferences</a>
+            <a href="{% url 'account' %}?setting=payment" class="left collection-item">Payment Methods</a>
+            <a href="{% url 'account' %}?setting=history" class="left collection-item">History</a>
+          </div>
+
+        {% if setting %}
+          {% ifequal setting "preferences" %}
+            <div class="col l9 s8">
+                <table class="stripped">
+                  <thead>
+                    <tr>
+                      <th><h5 class="header col s12 light">Preferences</h5></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Email Login</td>
+                      <td>{{request.session.current_user}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          {% endifequal %}
+          {% ifequal setting "payment" %}
+            <div class="col l9 s8">
+                <table class="stripped">
+                  <thead>
+                    <tr>
+                      <th><h5 class="header col s12 light">Payment</h5></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Credit</td>
+                      <td>xxxx-xxxx-xxxx-1234</td>
+                    </tr>
+                    <tr>
+                      <td>Debit</td>
+                      <td>xxxx-xxxx-xxxx-1234</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          {% endifequal %}
+          {% ifequal setting "history" %}
+            <div class="col l9 s8">
+                <table class="stripped">
+                  <thead>
+                    <tr>
+                      <th><h5 class="header col s12 light">History</h5></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Type</th>
+                      <th>Transportation</th>
+                      <th>Source</th>
+                      <th>Destination</th>
+                      <th>Book Date</th>
+                      <th>Total</th>
+                      <th>Card Number</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for obj in transactions %}
+                    <tr>
+                      {% if obj.bookingID.Hotel != Null  %}
+                    <td>Hotel</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>{{obj.bookingID.Hotel.city}}</td>
+                    
+                  {% elif obj.bookingID.Flight != Null %}
+                  <td>Flight</td>
+                  <td>{{obj.Type}}</td>
+                    
+                    <td>{{obj.bookingID.Flight.sourceLocation}}</td>
+                    <td>{{obj.bookingID.Flight.destinationLocation}}</td>
+                  {% else %}
+                  <td>Train</td>
+                  <td>{{obj.Type}}</td>
+                    
+                    <td>{{obj.bookingID.Train.sourceLocation}}</td>
+                    <td>{{obj.bookingID.Train.destinationLocation}}</td>
+                  
+                {% endif %}
+                      <td>{{obj.transactionDate}}</td>
+                      <td>Rs {{obj.paymentID.amount}}</td>
+                      <td>{{obj.paymentID.cardNo}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+          {% endifequal %}
+        {% else %}
+          <div class="col l9 s8" style="height: 25em; overflow-y: scroll;">
+                <table class="stripped">
+                  <thead>
+                    <tr>
+                      <th><h5 class="header col s12 light">Preferences</h5></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Email Login</td>
+                      <td>{{request.session.current_user}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        {% endif %}
+          
+        </div>
+  </div>
+
+{% endblock content %}
