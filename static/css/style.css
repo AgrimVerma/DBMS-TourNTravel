@@ -1,9 +1,4 @@
 /* Custom Stylesheet */
-nav ul a,
-nav .brand-logo {
-  color: #444;
-}
-
 p {
   line-height: 2rem;
 }
@@ -18,37 +13,73 @@ p {
   height: auto;
   color: rgba(255,255,255,0.9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
+
+.parallax-container .section {
+  width: 100%;
+}
 
 
-  .bg{
-      min-height: 100vh;
-      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.4))), url("https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-      background-size: cover;
-  }
+.bg{
+    min-height: 125vh;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.4))), url("https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+}
 
-  .textbox {
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    content: '';
-    color: white;
-    
-  }
-  h1{
-    font-size: 7.5rem;
-    margin: 0;padding: 0;
-    font-family: serif;
-  }
-  h3{
-    font-size: 2em;
-    margin: 0;padding: 0;
-    color: rgba(255,255,255,0.9);
-  }
+.head {
+  opacity: 80%;
+}
 
+.head:hover {
+  opacity: 100%;
+  transition: 1s;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #fff;
+}
+
+nav ul a:hover,
+nav .brand-logo:hover {
+  color: purple;
+  transition: 0.5s;
+}
+
+.btn {
+  color: white;
+  background-color: purple;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #7f0064;
+  transition: 0.5s;
+}
+
+.textbox {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  content: '';
+  color: white;  
+}
+
+h1{
+  font-size: 7.5rem;
+  margin: 0;padding: 0;
+  font-family: serif;
+}
+
+h3{
+  font-size: 2em;
+  margin: 0;padding: 0;
+  color: rgba(255,255,255,0.9);
+}
+
+.container {
+  width: 80%;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -75,6 +106,10 @@ p {
 
 footer.page-footer {
   margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  opacity: 80%;
 }
 
 .datepicker-date-display{
