@@ -81,6 +81,11 @@ h3{
   width: 80%;
 }
 
+.image-bg {
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://thumbs.dreamstime.com/b/palm-trees-silhouettes-tropical-beach-sunset-modern-vintage-colors-139094492.jpg);
+  background-size:cover;
+}
+
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;

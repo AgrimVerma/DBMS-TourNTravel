@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>TMinus0_admin</title>
+  <title>TnT_Admin</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,7 +12,7 @@
   <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="white" role="navigation">
+  <nav class="black head" role="navigation" style="opacity: 95%;">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo purple-text">Tours&Travels</a>
       <ul class="right hide-on-med-and-down">
@@ -21,7 +21,7 @@
         <!-- <li><a class="purple-text" href="/index">User</a></li> -->
         <!-- Dropdown Trigger -->
 
-        <a class='dropdown-trigger btn purple' href='#' data-target='dropdown1'>My Account</a>
+        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>My Account</a>
         {% if request.session.current_user %}        
         <ul id='dropdown1' class='dropdown-content'>
           <li><a href="/account">Settings</a></li>
@@ -111,11 +111,11 @@
     
   {% endblock content %}
 
-  <footer class="page-footer purple">
+  <footer class="page-footer black" style="opacity: 95%;">
     <div class="container">
       <div class="row">
         <div class="col l8 s8">
-          <h5 class="white-text">Team TMinus0</h5>
+          <h5 class="white-text">Team TnT</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working hard to provide the best possible service to users.</p>
         </div>
         <!-- <div class="col l4 s4">
@@ -128,8 +128,8 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-         Made by- <span style="padding-left: 3em;">Harsh Mahajan</span> <span style="padding-left: 3em;">Aditya Raj</span> <span style="padding-left: 3em;"><a class="white-text text-lighten-3" href="http://bchetanrao.github.io">B Chetan Rao</a></span> <span style="padding-left: 3em;">Hitika Rajesh Kumar</span>
-      </div>
+        Made by- <span style="padding-left: 3em;">Agrim Verma</span> <span style="padding-left: 3em;">Shantanu</span> <span style="padding-left: 3em;"><a class="white-text" href="https://github.com/Krishna3267">Krishna Shah</a></span> <span style="padding-left: 3em;">Neel patel</span>
+     </div>
     </div>
   </footer>
   </body>
