@@ -82,7 +82,7 @@ h3{
 }
 
 .image-bg {
-  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://thumbs.dreamstime.com/b/palm-trees-silhouettes-tropical-beach-sunset-modern-vintage-colors-139094492.jpg);
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   background-size:cover;
 }
 
@@ -123,4 +123,17 @@ footer.page-footer {
 
 #search-button{
   width: 200px;
+}
+
+.card-outer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: row;
+  width: 33.33%;
 }

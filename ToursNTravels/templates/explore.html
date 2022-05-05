@@ -41,21 +41,17 @@
     <div class="parallax"><img src="{% static 'images/' %}{{location.0.image}}" alt="Unsplashed background img 2"></div>
   </div>
   <div class="container">
-  <div class="row center">
-      <br>
+    <br>
+  <div class="row center card-outer">
         {% for obj in some_list %}
-        <div class="col l4 m4 s12">
-          <div class="card purple lighten-2">
+        <div class="col l4 m4 s12 card-inner">
+          <div class="card lighten-2" style="background-color: purple;">
             <div style="margin: 0.5em auto;"><img src="{% static 'images/' %}{{obj.image}}" 
              width="100%" alt="Card one" style="padding: 1em;"></div>
             <div class="card-content white-text">
               <span class="card-title" style="padding: 0.2em; font-weight: 500;">{{obj.attractionName}}</span>
               <p>{{obj.attractionDescription}}</p>
             </div>
-
-<!--             <div class="card-action">
-              <a href="#">Book Now</a>
-            </div> -->
           </div>
           </div>
         {% endfor %}
