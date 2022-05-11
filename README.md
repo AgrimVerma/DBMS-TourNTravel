@@ -42,7 +42,6 @@ pip3 or pip install -r requirements.txt
  
 
 ```
-cd .\tminus0\
 python or python3 manage.py migrate
 python or python3 manage.py runserver
 ```
@@ -63,20 +62,20 @@ Destinations added -
 Flights-
 | Source |	Destination |	Departure Date |
 |----------|:-------------:|------:|
-| New York | 	Tokyo |	10-5-2022 | 
-| Ladakh |	Seoul |	10-5-2022 | 
-| Tokyo |	Sydney |	10-5-2022 |
-| Sydney |	Ladakh |	10-5-2022 |
+| New York | 	Tokyo |	12-5-2022 | 
+| Ladakh |	Seoul |	12-5-2022 | 
+| Tokyo |	Sydney |	12-5-2022 |
+| Sydney |	Ladakh |	12-5-2022 |
 
 
 Trains -
 | Source |	Destination |	Departure Date |
 |----------|:-------------:|------:|
-| New York |	Tokyo |	2022-05-09 |
-| Ladakh	| Seoul	 | 2022-05-09 |
-| Tokyo	| Sydney |	2022-05-09 |
-| Seoul	| New York |	2022-05-09 |
-| Sydney	| Ladakh	| 2022-05-09 |
+| New York |	Tokyo |	2022-05-12 |
+| Ladakh	| Seoul	 | 2022-05-12 |
+| Tokyo	| Sydney |	2022-05-12 |
+| Seoul	| New York |	2022-05-12 |
+| Sydney	| Ladakh	| 2022-05-12 |
 
 Hotels - 
 | Company Name	| City |	Address |
