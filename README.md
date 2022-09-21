@@ -10,6 +10,7 @@
 - Krishna Shah
 - Neel Patel
 - Jiniya Singal
+- Danish Jamwal
 
 
 ## Software Requirements
